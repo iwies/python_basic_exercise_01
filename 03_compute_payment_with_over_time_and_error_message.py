@@ -16,14 +16,25 @@ Error, please enter numeric input
 
 """
 
-
-# your code here
-
-
 # take hours and rate as input
-hours = int(input('Enter Hours: '))
-rate = float(input('Enter Rate:'))
-pay = 0
+
+pay = []
+
+try:
+    hours = int(input('Enter Hours: '))
+    rate = float(input('Enter Rate: '))
+
+    if hours < 40:
+        pay = hours * rate
+
+    elif hours > 40:
+        pay = ((hours - 40) * (rate * 1.5)) + (40 * rate)
+
+
+    print('Pay: {:.2f}'.format(pay)) 
+
+except ValueError:
+    print("Error, please enter numeric input")
 
 
 print('Pay: {:.2f}'.format(pay))
