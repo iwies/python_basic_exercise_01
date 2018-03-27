@@ -25,18 +25,28 @@ Error, please enter numeric input
 
 """
 
+def computepay():
+    pay = []
 
-def computepay(hours, rate):
-    pay = 0
-    # your code here
+    try:
+        hours = int(input('Enter Hours: '))
+        rate = float(input('Enter Rate: '))
 
-    return pay
+        if hours < 40:
+            pay = (hours * rate) - (rate * 0.5)
+
+        elif hours > 40:
+            pay = ((hours - 40) * (rate * 1.5)) + (40 * rate)
+            
+        elif hours == 40:
+            pay = (hours * rate) 
 
 
-# take hours and rate as input
-hours = int(input('Enter Hours: '))
-rate = float(input('Enter Rate:'))
-pay = computepay(hours, rate)
+        print('Pay: {:.2f}'.format(pay)) 
 
-if pay:
-    print('Pay: {:.2f}'.format())
+    except ValueError:
+        print("Not valid... Exiting...")
+
+
+    
+computepay()
